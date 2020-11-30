@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  </head>
+  <body onkeypress="checkKey();">
+<div id="app"></div>
+<div id="event"></div>
+<input id="output" width='200' value="0" readonly></input>
+<br>
+<table>
+  <tr>
+    <td>
+      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');">c</button>
+    </td>
+    <td>
+      <button id="posinegative">±</button>
+    </td>
+    <td>
+      <button id="percent">%</button>
+    </td>
+    <td>
+      <button id="divide">÷</button>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="seven" onclick="addNum('7');">7</button>
+    </td>
+    <td>
+      <button id="eight" onclick="addNum('8');">8</button>
+    </td>
+    <td>
+      <button id="nine" onclick="addNum('9');">9</button>
+    </td>
+    <td>
+      <button id="times">×</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="four" onclick="addNum('4');">4</button>
+    </td>
+    <td>
+      <button id="five" onclick="addNum('5');">5</button>
+    </td>
+    <td>
+      <button id="six" onclick="addNum('6');">6</button>
+    </td>
+    <td>
+      <button id="minus">−</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="one" onclick="addNum('1');">1</button>
+    </td>
+    <td>
+      <button id="two" onclick="addNum('2');">2</button>
+    </td>
+    <td>
+      <button id="three" onclick="addNum('3');">3</button>
+    </td>
+    <td>
+      <button id="plus">+</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="zero" onclick="addNum(0);">0</button>
+    </td>
+    <td>
+      <button id="dot" onclick="addDot();">.</button>
+    </td>
+    <td>
+      <button id="del" onclick="del();">⌫</button>
+    </td>
+    <td>
+      <button id="equal">=</button>
+    </td>
+  </tr>
+</table>
+<script>
+// Write Javascript code!
+const appDiv = document.getElementById('app');
+appDiv.innerHTML = `<h1 onclick="document.documentElement.requestFullscreen();">Calculator</h1>`;
+//const key = event.key
+var operator = 0;
+
+function del() {
+  const textarea = document.getElementById('output');
+  if (textarea.value != 0) {
+    if (textarea.value.length != 1 || textarea.value == 0){
+      textarea.value = textarea.value.slice(0, -1);
+    } else {
+      textarea.value = "0";
+    }
+  } else if (textarea.value != "0") {
+    textarea.value = textarea.value.slice(0, -1);
+  }
+  console.log("set textarea.value to " + textarea.value)
+}
+
+function addNum(n) {
+  const textarea = document.getElementById('output');
+  if (textarea.value != "0"){
+    textarea.value += n;
+  } else if (n != 0){
+    textarea.value = n;
+  }
+  console.log("set textarea.value to " + textarea.value)
+}
+function checkKey() {
+  var keyVal = event.key;
+  var keyType = typeof keyVal
+  if (keyType == "number") {
+    addNum(keyVal);
+  }
+}
+
+function addDot(){
+  const textarea = document.getElementById('output');
+  if (textarea.value.indexOf(".") == -1) {
+    textarea.value += ".";
+  }
+  console.log("set textarea.value to " + textarea.value)
+  console.count("dot")
+}
+
+</script>
+
+
+
+<!--0C±%÷789×456−123+0,⌫=-->
+  </body>
+</html>
