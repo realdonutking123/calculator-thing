@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   </head>
-  <body onkeypress="checkKey();">
+  <body onkeypress="checkKey(event);">
 <div id="app"></div>
 <div id="event"></div>
 <input id="output" width='200' value="0" readonly placeholder="-1"></input>
@@ -86,8 +86,9 @@
 <script>
 // Write Javascript code!
 const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1 onclick="document.documentElement.requestFullscreen();">Calculator</h1>`;
+appDiv.innerHTML = `<h1 onclick="document.documentElement.requestFullscreen();" id="header">Calculator</h1>`;
 //const key = event.key
+var _equal = false
 var operator = 0;
 var dot = false;
 function del() {
@@ -120,22 +121,85 @@ function del() {
 
 function addNum(n) {
   const textarea = document.getElementById('output');
-  if (textarea.value != "0"){
+  if (_equal) {
+    textarea.value = n;
+  }
+  if (textarea.value != "0" && !_equal){
     if (textarea.value.slice(-1) == "*" || textarea.value.slice(-1) == "/" || textarea.value.slice(-1) == "-" || textarea.value.slice(-1) == "+") {
       textarea.value += " ";
     }
     textarea.value += n;
-  } else if (n != 0){
+  } else if (n != 0 || _equal){
     textarea.value = n;
+    _equal = false;
   }
   console.log("set textarea.value to " + textarea.value);
+  _equal = false;
 }
 
-function checkKey() {
+function checkKey(event) {
   var keyVal = event.key;
   var keyType = typeof keyVal
-  if (keyType == "number") {
-    addNum(keyVal);
+  switch (keyVal) {
+    case "c":
+    case "C":
+      document.getElementById("ac").click();
+      break;
+    case "%":
+      document.getElementById("percent").click();
+      break;
+    case "/":
+      document.getElementById("divide").click();
+      break;
+    case "1":
+      document.getElementById("one").click();
+      break;
+    case "2":
+      document.getElementById("two").click();
+      break;
+    case "3":
+      document.getElementById("three").click();
+      break;
+    case "4":
+      document.getElementById("four").click();
+      break;
+    case "5":
+      document.getElementById("five").click();
+      break;
+    case "6":
+      document.getElementById("six").click();
+      break;
+    case "7":
+      document.getElementById("seven").click();
+      break;
+    case "8":
+      document.getElementById("eight").click();
+      break;
+    case "9":
+      document.getElementById("nine").click();
+      break;
+    case "0":
+      document.getElementById("zero").click();
+      break;
+    case ".":
+      document.getElementById("dot").click();
+      break;
+    case "Backspace":
+      document.getElementById("del").click();
+      break;
+    case "Enter":
+    case "=":
+      document.getElementById("equal").click();
+      break;
+    case "+":
+      document.getElementById("plus").click();
+      break;
+    case "-":
+      document.getElementById("minus").click();
+      break;
+    case "f":
+    case "F":
+      document.getElementById("header").click();
   }
 }
 
@@ -148,7 +212,8 @@ function addDot(n){
     if (!dot) {
       textarea.value += n;
       dot = false;
-    } else if (textarea.placeholder.indexOf(n) == -1) {
+      _equal = false;
+        } else if (textarea.placeholder.indexOf(n) == -1) {
       textarea.placeholder = 1;
     }
   }
@@ -156,12 +221,13 @@ function addDot(n){
 }
 
 function addTimes(n){
+  _equal = false;
   if (n === undefined) {
     n = "h";
   }
   const textarea = document.getElementById('output');
   if (n != ".") {
-    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf("-") == -1 && textarea.value.indexOf("+") == -1) {
+    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf(" -") == -1 && textarea.value.indexOf("+") == -1) {
       textarea.value += " "+n;
     } else if (textarea.value.indexOf(n) == -1) {
       
@@ -171,12 +237,13 @@ function addTimes(n){
 }
 
 function addDivide(n){
+  _equal = false;
   if (n === undefined) {
     n = "h";
   }
   const textarea = document.getElementById('output');
   if (n != ".") {
-    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf("-") == -1 && textarea.value.indexOf("+") == -1) {
+    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf(" -") == -1 && textarea.value.indexOf("+") == -1) {
       textarea.value += " "+n;
     } else if (textarea.value.indexOf(n) == -1) {
       
@@ -186,12 +253,13 @@ function addDivide(n){
 }
 
 function addPlus(n){
+  _equal = false;
   if (n === undefined) {
     n = "h";
   }
   const textarea = document.getElementById('output');
   if (n != ".") {
-    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf("-") == -1 && textarea.value.indexOf("+") == -1) {
+    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf(" -") == -1 && textarea.value.indexOf("+") == -1) {
       textarea.value += " "+n;
     } else if (textarea.value.indexOf(n) == -1) {
       
@@ -201,6 +269,7 @@ function addPlus(n){
 }
 
 function addMinus(n){
+  _equal = false;
   if (n === undefined) {
     n = "h";
   }
@@ -221,21 +290,26 @@ function equal() {
   switch (input[1]) {
     case "*":
       textarea.value = input[0] * input[2];
+      _equal = true;
       break;
     case "/":
       textarea.value = input[0] / input[2];
+      _equal = true;
       break;
     case "+":
       textarea.value = Number(input[0]) + Number(input[2]);
+      _equal = true;
       break;
     case "-":
       textarea.value = input[0] - input[2];
+      _equal = true;
       break;
   }  
   console.log("set textarea.value to " + textarea.value);
 }
 
 function posinegative() {
+  _equal = false;
   const textarea = document.getElementById('output');
   var isOp = [textarea.value.indexOf("/"), textarea.value.indexOf("*"), textarea.value.indexOf(" -"), textarea.value.indexOf("+"), textarea.value.indexOf("-")];
   if (isOp[0] + isOp[1] + isOp[2] + isOp[3] == -4) {
@@ -249,6 +323,7 @@ function posinegative() {
 }
 
 function _100() {
+  _equal = false;
   const textarea = document.getElementById('output');
   var isOp = [textarea.value.indexOf("/"), textarea.value.indexOf("*"), textarea.value.indexOf(" -"), textarea.value.indexOf("+"), textarea.value.indexOf("-")];
   if (isOp[0] + isOp[1] + isOp[2] + isOp[3] == -4) {
