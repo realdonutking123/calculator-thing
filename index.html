@@ -1,11 +1,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="light.css">
   </head>
   <body onkeydown="checkKey(event);">
 <div id="app"></div>
 <div id="event"></div>
+<div id="main-calc">
 <input id="output" width='200' value="0" readonly placeholder="-1"></input>
 <br>
 <table>
@@ -83,6 +85,7 @@
     </td>
   </tr>
 </table>
+</div>
 <script>
 // Write Javascript code!
 const appDiv = document.getElementById('app');
