@@ -14,10 +14,10 @@
       <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');">c</button>
     </td>
     <td>
-      <button id="posinegative">±</button>
+      <button id="posinegative" onclick="posinegative();">±</button>
     </td>
     <td>
-      <button id="percent">%</button>
+      <button id="percent" onclick="_100();">%</button>
     </td>
     <td>
       <button id="divide" onclick="addDivide('/');">÷</button>
@@ -79,7 +79,7 @@
       <button id="del" onclick="del();">⌫</button>
     </td>
     <td>
-      <button id="equal">=</button>
+      <button id="equal" onclick="equal();">=</button>
     </td>
   </tr>
 </table>
@@ -121,12 +121,14 @@ function del() {
 function addNum(n) {
   const textarea = document.getElementById('output');
   if (textarea.value != "0"){
-    if (textarea.value.slice(-1)  )
+    if (textarea.value.slice(-1) == "*" || textarea.value.slice(-1) == "/" || textarea.value.slice(-1) == "-" || textarea.value.slice(-1) == "+") {
+      textarea.value += " ";
+    }
     textarea.value += n;
   } else if (n != 0){
     textarea.value = n;
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function checkKey() {
@@ -150,7 +152,7 @@ function addDot(n){
       textarea.placeholder = 1;
     }
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function addTimes(n){
@@ -165,7 +167,7 @@ function addTimes(n){
       
     }
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function addDivide(n){
@@ -180,7 +182,7 @@ function addDivide(n){
       
     }
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function addPlus(n){
@@ -195,7 +197,7 @@ function addPlus(n){
       
     }
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function addMinus(n){
@@ -204,18 +206,55 @@ function addMinus(n){
   }
   const textarea = document.getElementById('output');
   if (n != ".") {
-    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf("-") == -1 && textarea.value.indexOf("+") == -1) {
+    if (textarea.value.indexOf("*") == -1 && textarea.value.indexOf("/") == -1 && textarea.value.indexOf(" -") == -1 && textarea.value.indexOf("+") == -1) {
       textarea.value += " "+n;
     } else if (textarea.value.indexOf(n) == -1) {
       
     }
   }
-  console.log("set textarea.value to " + textarea.value)
+  console.log("set textarea.value to " + textarea.value);
 }
 
 function equal() {
   const textarea = document.getElementById('output');
-  textarea.value.split(" ")
+  input = textarea.value.split(" ");
+  switch (input[1]) {
+    case "*":
+      textarea.value = input[0] * input[2];
+      break;
+    case "/":
+      textarea.value = input[0] / input[2];
+      break;
+    case "+":
+      textarea.value = Number(input[0]) + Number(input[2]);
+      break;
+    case "-":
+      textarea.value = input[0] - input[2];
+      break;
+  }  
+  console.log("set textarea.value to " + textarea.value);
+}
+
+function posinegative() {
+  const textarea = document.getElementById('output');
+  var isOp = [textarea.value.indexOf("/"), textarea.value.indexOf("*"), textarea.value.indexOf(" -"), textarea.value.indexOf("+"), textarea.value.indexOf("-")];
+  if (isOp[0] + isOp[1] + isOp[2] + isOp[3] == -4) {
+    if (isOp[4] == -1) {
+      textarea.value = "-"+textarea.value
+    } else if (isOp[4] == 0){
+      textarea.value = textarea.value.slice(1)
+    }
+  }
+  console.log("set textarea.value to " + textarea.value);
+}
+
+function _100() {
+  const textarea = document.getElementById('output');
+  var isOp = [textarea.value.indexOf("/"), textarea.value.indexOf("*"), textarea.value.indexOf(" -"), textarea.value.indexOf("+"), textarea.value.indexOf("-")];
+  if (isOp[0] + isOp[1] + isOp[2] + isOp[3] == -4) {
+    textarea.value = textarea.value / 100;
+  }
+  console.log("set textarea.value to " + textarea.value);
 }
 </script>
 
