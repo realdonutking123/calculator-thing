@@ -1,8 +1,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="light.css">
+    <link rel="manifest" href="/manifest.json">
   </head>
   <body onkeydown="checkKey(event);">
 <div id="app"></div>
@@ -13,75 +14,75 @@
 <table>
   <tr>
     <td>
-      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');">c</button>
+      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');" class="unclicked">c</button>
     </td>
     <td>
-      <button id="posinegative" onclick="posinegative();">±</button>
+      <button id="posinegative" onclick="posinegative();" class="unclicked">±</button>
     </td>
     <td>
-      <button id="percent" onclick="_100();">%</button>
+      <button id="percent" onclick="_100();" class="unclicked">%</button>
     </td>
     <td>
-      <button id="divide" onclick="addDivide('/');">÷</button>
+      <button id="divide" onclick="addDivide('/');" class="unclicked">÷</button>
   </tr>
 
   <tr>
     <td>
-      <button id="seven" onclick="addNum('7');">7</button>
+      <button id="seven" onclick="addNum('7');" class="unclicked">7</button>
     </td>
     <td>
-      <button id="eight" onclick="addNum('8');">8</button>
+      <button id="eight" onclick="addNum('8');" class="unclicked">8</button>
     </td>
     <td>
-      <button id="nine" onclick="addNum('9');">9</button>
+      <button id="nine" onclick="addNum('9');" class="unclicked">9</button>
     </td>
     <td>
-      <button id="times" onclick="addTimes('*');">×</button>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <button id="four" onclick="addNum('4');">4</button>
-    </td>
-    <td>
-      <button id="five" onclick="addNum('5');">5</button>
-    </td>
-    <td>
-      <button id="six" onclick="addNum('6');">6</button>
-    </td>
-    <td>
-      <button id="minus" onclick="addMinus('-');">−</button>
+      <button id="times" onclick="addTimes('*');" class="unclicked">×</button>
     </td>
   </tr>
 
   <tr>
     <td>
-      <button id="one" onclick="addNum('1');">1</button>
+      <button id="four" onclick="addNum('4');" class="unclicked">4</button>
     </td>
     <td>
-      <button id="two" onclick="addNum('2');">2</button>
+      <button id="five" onclick="addNum('5');" class="unclicked">5</button>
     </td>
     <td>
-      <button id="three" onclick="addNum('3');">3</button>
+      <button id="six" onclick="addNum('6');" class="unclicked">6</button>
     </td>
     <td>
-      <button id="plus" onclick="addPlus('+');">+</button>
+      <button id="minus" onclick="addMinus('-');" class="unclicked">−</button>
     </td>
   </tr>
 
   <tr>
     <td>
-      <button id="zero" onclick="addNum(0);">0</button>
+      <button id="one" onclick="addNum('1');" class="unclicked">1</button>
     </td>
     <td>
-      <button id="dot" onclick="addDot('.');">.</button>
+      <button id="two" onclick="addNum('2');" class="unclicked">2</button>
     </td>
     <td>
-      <button id="delete" onclick="del();">⌫</button>
+      <button id="three" onclick="addNum('3');" class="unclicked">3</button>
     </td>
     <td>
-      <button id="equal" onclick="equal();">=</button>
+      <button id="plus" onclick="addPlus('+');" class="unclicked">+</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="zero" onclick="addNum(0);" class="unclicked">0</button>
+    </td>
+    <td>
+      <button id="dot" onclick="addDot('.');" class="unclicked">.</button>
+    </td>
+    <td>
+      <button id="delete" onclick="del();" class="unclicked">⌫</button>
+    </td>
+    <td>
+      <button id="equal" onclick="equal();" class="unclicked">=</button>
     </td>
   </tr>
 </table>
@@ -147,62 +148,86 @@ function checkKey(event) {
     case "c":
     case "C":
       document.getElementById("ac").click();
+      document.getElementById("ac").focus();
       break;
     case "%":
       document.getElementById("percent").click();
+      document.getElementById("percent").focus();
       break;
     case "/":
       document.getElementById("divide").click();
+      document.getElementById("divide").focus();
       break;
     case "1":
       document.getElementById("one").click();
+      document.getElementById("one").focus();
       break;
     case "2":
       document.getElementById("two").click();
+      document.getElementById("two").focus();
       break;
     case "3":
       document.getElementById("three").click();
+      document.getElementById("three").focus();
       break;
     case "4":
       document.getElementById("four").click();
+      document.getElementById("four").focus();
       break;
     case "5":
       document.getElementById("five").click();
+      document.getElementById("five").focus();
       break;
     case "6":
       document.getElementById("six").click();
+      document.getElementById("six").focus();
       break;
     case "7":
       document.getElementById("seven").click();
+      document.getElementById("seven").focus();
       break;
     case "8":
       document.getElementById("eight").click();
+      document.getElementById("eight").focus();
       break;
     case "9":
       document.getElementById("nine").click();
+      document.getElementById("nine").focus();
       break;
     case "0":
       document.getElementById("zero").click();
+      document.getElementById("zero").focus();
       break;
     case ".":
       document.getElementById("dot").click();
+      document.getElementById("dot").focus();
       break;
     case "Backspace":
       document.getElementById("delete").click();
+      document.getElementById("delete").focus();
       break;
     case "Enter":
     case "=":
       document.getElementById("equal").click();
+      document.getElementById("equal").focus();
       break;
     case "+":
       document.getElementById("plus").click();
+      document.getElementById("plus").focus();
       break;
     case "-":
       document.getElementById("minus").click();
+      document.getElementById("minus").focus();
       break;
     case "f":
     case "F":
       document.getElementById("header").click();
+      document.getElementById("header").focus();
+      break;
+    case "*":
+      document.getElementById("times").click();
+      document.getElementById("times").focus();
+      setTimeout(document.getElementById("times").blur,500);
   }
 }
 
@@ -334,10 +359,30 @@ function _100() {
   }
   console.log("set textarea.value to " + textarea.value);
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function wait(n) {
+  await sleep(n);
+  // Sleep in loop
+ // for (let i = 0; i < 5; i++) {
+   // if (i === 3)
+     // await sleep(2000);
+   // console.log(i);
+  //}
+}
 </script>
 
 
-
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
+</script>
 <!--0C±%÷789×456−123+0,⌫=-->
   </body>
 </html>

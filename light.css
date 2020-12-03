@@ -1,4 +1,4 @@
-button {
+button, .unclicked {
   border-radius: 30%;
   text-align: center;
   height: 15vw;
@@ -20,9 +20,10 @@ button:hover {
   margin: auto;
   font-size: 8vw;
   background-color: lightgray;
+  cursor: pointer;
 }
 
-button:active {
+button:active, .clicked, button:focus {
   border-radius: 30%;
   text-align: center;
   height: 15vw;
