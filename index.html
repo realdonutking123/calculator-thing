@@ -228,7 +228,7 @@ function checkKey(event) {
     case "*":
       document.getElementById("times").click();
       document.getElementById("times").focus();
-      setTimeout(document.getElementById("times").blur,500);
+  //    setTimeout(document.getElementById("times").blur,500);
       break;
     case "R":
     case "r":
@@ -322,19 +322,19 @@ function equal() {
   input = textarea.value.split(" ");
   switch (input[1]) {
     case "*":
-      textarea.value = input[0] * input[2];
+      textarea.value = Math.round(1000000000*(input[0] * input[2]))/1000000000;
       _equal = true;
       break;
     case "/":
-      textarea.value = input[0] / input[2];
+      textarea.value = Math.round(1000000000*(input[0] / input[2]))/1000000000;
       _equal = true;
       break;
     case "+":
-      textarea.value = Number(input[0]) + Number(input[2]);
+      textarea.value = Math.round(1000000000*(Number(input[0]) + Number(input[2])))/1000000000;
       _equal = true;
       break;
     case "-":
-      textarea.value = input[0] - input[2];
+      textarea.value = Math.round(1000000000*(input[0] - input[2]))/1000000000;
       _equal = true;
       break;
   }  
