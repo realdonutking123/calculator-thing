@@ -14,75 +14,75 @@
 <table>
   <tr>
     <td>
-      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');" class="unclicked">c</button>
+      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');" class="unclicked" onmouseup="blur();">c</button>
     </td>
     <td>
-      <button id="posinegative" onclick="posinegative();" class="unclicked">±</button>
+      <button id="posinegative" onclick="posinegative();" class="unclicked" onmouseup="blur();">±</button>
     </td>
     <td>
-      <button id="percent" onclick="_100();" class="unclicked">%</button>
+      <button id="percent" onclick="_100();" class="unclicked" onmouseup="blur();">%</button>
     </td>
     <td>
-      <button id="divide" onclick="addDivide('/');" class="unclicked">÷</button>
+      <button id="divide" onclick="addDivide('/');" class="unclicked" onmouseup="blur();">÷</button>
   </tr>
 
   <tr>
     <td>
-      <button id="seven" onclick="addNum('7');" class="unclicked">7</button>
+      <button id="seven" onclick="addNum('7');" class="unclicked" onmouseup="blur();">7</button>
     </td>
     <td>
-      <button id="eight" onclick="addNum('8');" class="unclicked">8</button>
+      <button id="eight" onclick="addNum('8');" class="unclicked" onmouseup="blur();">8</button>
     </td>
     <td>
-      <button id="nine" onclick="addNum('9');" class="unclicked">9</button>
+      <button id="nine" onclick="addNum('9');" class="unclicked" onmouseup="blur();">9</button>
     </td>
     <td>
-      <button id="times" onclick="addTimes('*');" class="unclicked">×</button>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <button id="four" onclick="addNum('4');" class="unclicked">4</button>
-    </td>
-    <td>
-      <button id="five" onclick="addNum('5');" class="unclicked">5</button>
-    </td>
-    <td>
-      <button id="six" onclick="addNum('6');" class="unclicked">6</button>
-    </td>
-    <td>
-      <button id="minus" onclick="addMinus('-');" class="unclicked">−</button>
+      <button id="times" onclick="addTimes('*');" class="unclicked" onmouseup="blur();">×</button>
     </td>
   </tr>
 
   <tr>
     <td>
-      <button id="one" onclick="addNum('1');" class="unclicked">1</button>
+      <button id="four" onclick="addNum('4');" class="unclicked" onmouseup="blur();">4</button>
     </td>
     <td>
-      <button id="two" onclick="addNum('2');" class="unclicked">2</button>
+      <button id="five" onclick="addNum('5');" class="unclicked" onmouseup="blur();">5</button>
     </td>
     <td>
-      <button id="three" onclick="addNum('3');" class="unclicked">3</button>
+      <button id="six" onclick="addNum('6');" class="unclicked" onmouseup="blur();">6</button>
     </td>
     <td>
-      <button id="plus" onclick="addPlus('+');" class="unclicked">+</button>
+      <button id="minus" onclick="addMinus('-');" class="unclicked" onmouseup="blur();">−</button>
     </td>
   </tr>
 
   <tr>
     <td>
-      <button id="zero" onclick="addNum(0);" class="unclicked">0</button>
+      <button id="one" onclick="addNum('1');" class="unclicked" onmouseup="blur();">1</button>
     </td>
     <td>
-      <button id="dot" onclick="addDot('.');" class="unclicked">.</button>
+      <button id="two" onclick="addNum('2');" class="unclicked" onmouseup="blur();">2</button>
     </td>
     <td>
-      <button id="delete" onclick="del();" class="unclicked">⌫</button>
+      <button id="three" onclick="addNum('3');" class="unclicked" onmouseup="blur();">3</button>
     </td>
     <td>
-      <button id="equal" onclick="equal();" class="unclicked">=</button>
+      <button id="plus" onclick="addPlus('+');" class="unclicked" onmouseup="blur();">+</button>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <button id="zero" onclick="addNum(0);" class="unclicked" onmouseup="blur();">0</button>
+    </td>
+    <td>
+      <button id="dot" onclick="addDot('.');" class="unclicked" onmouseup="blur();">.</button>
+    </td>
+    <td>
+      <button id="delete" onclick="del();" class="unclicked" onmouseup="blur();">⌫</button>
+    </td>
+    <td>
+      <button id="equal" onclick="equal();" class="unclicked" onmouseup="blur();">=</button>
     </td>
   </tr>
 </table>
@@ -121,6 +121,9 @@ function del() {
     
   }
   textarea.value = textarea.value.trim()
+  if (textarea.value == "Error1-") {
+    textarea.value = 0;
+  }
   console.log("set textarea.value to " + textarea.value)
 }
 
@@ -338,6 +341,9 @@ function equal() {
       _equal = true;
       break;
   }  
+  if (textarea.value == "NaN" || textarea.value == "Infinity") {
+    textarea.value = "Error";
+  }
   console.log("set textarea.value to " + textarea.value);
 }
 
