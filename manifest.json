@@ -3,7 +3,7 @@
   "name": "calculator-thing",
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -13,7 +13,7 @@
      // "sizes": "512x512"
    // }
   ],
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "background_color": "#0099fe",
   "display": "standalone",
   "scope": "/",
