@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="light.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/calculator-thing/manifest.json">
   </head>
   <body onkeydown="checkKey(event);">
 <div id="app"></div>
@@ -414,7 +414,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js');
+      navigator.serviceWorker.register('/calculator-thing/service-worker.js');
     });
   }
 </script>
