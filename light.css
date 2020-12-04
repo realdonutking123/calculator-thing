@@ -1,24 +1,26 @@
 button, .unclicked {
   border-radius: 30%;
   text-align: center;
-  height: 15vw;
-  width: 15vw;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 1vw;
-  font-size: 7vw;  
+  height: 10vh;
+  width: 10vh;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  margin: 2vmin;
+  font-size: 7vmin;  
   position: relative;
+  background-color: #eeeeee;
+  color: black;
 }
 
 button:hover {
   border-radius: 30%;
   text-align: center;
-  height: 17vw;
-  width: 17vw;
-  max-width: 100%;
-  max-height: 100%;
+  height: 12vh;
+  width: 12vh;
+  max-width: 16vmin;
+  max-height: 16vmin;
   margin: auto;
-  font-size: 8vw;
+  font-size: 8vmin;
   background-color: lightgray;
   cursor: pointer;
 }
@@ -28,24 +30,26 @@ button:active, .clicked, button:focus {
   text-align: center;
   height: 15vw;
   width: 15vw;
-  max-width: 100%;
-  max-height: 100%;
-  font-size: 7vw;  
-  margin: 1vw;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  font-size: 7vmin;  
+  margin: 2vmin;
   background-color: lightgray;
 }
 
 #output {
   text-align: right;
-  width: 71vw;
-  height: 10vw;
-  font-size: 10vw;  
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 10vh;
+  font-size: 9vmin;  
+  max-width: 65vmin;
+  max-height: 10vmin;
   margin: auto;
+  color: black;
+  background-color: white;
 }
 
-#main-calc {
+#main-calc, #calc-table {
   margin: auto;
   align-self: center;
   position: absolute;
@@ -77,4 +81,10 @@ button:active, .clicked, button:focus {
 
 #header {
   font-size: 7vh;
+  color: black;
 }
+
+body {
+  background-color: white;
+}
+

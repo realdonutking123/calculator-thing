@@ -1,0 +1,89 @@
+button, .unclicked {
+  border-radius: 30%;
+  text-align: center;
+  height: 10vh;
+  width: 10vh;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  margin: 2vmin;
+  font-size: 7vmin;  
+  position: relative;
+  background-color: #555555;
+  color: white;
+}
+
+button:hover {
+  border-radius: 30%;
+  text-align: center;
+  height: 12vh;
+  width: 12vh;
+  max-width: 16vmin;
+  max-height: 16vmin;
+  margin: auto;
+  font-size: 8vmin;
+  background-color: #333333;
+  cursor: pointer;
+}
+
+button:active, .clicked, button:focus {
+  border-radius: 30%;
+  text-align: center;
+  height: 15vw;
+  width: 15vw;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  font-size: 7vmin;  
+  margin: 2vmin;
+  background-color: lightgray;
+}
+
+#output {
+  text-align: right;
+  width: 100%;
+  height: 10vh;
+  font-size: 9vmin;  
+  max-width: 65vmin;
+  max-height: 10vmin;
+  margin: auto;
+  color: white;
+  background-color: #555555;
+}
+
+#main-calc, #calc-table {
+  margin: auto;
+  align-self: center;
+  position: absolute;
+  max-width: 100vmin;
+  max-height: 100vmin;
+}
+
+.add-button {
+  position: fixed;
+  top: 1px;
+  left: 1px;
+  height: 8vw;
+  width: 40vw;
+  margin: 5;
+  border-radius: 4vw;
+  font-size: 4vw;
+}
+
+.add-button:hover, .add-button:focus {
+  position: fixed;
+  top: 1px;
+  left: 1px;
+  margin: 5;
+  height: 8vw;
+  width: 40vw;
+  border-radius: 4vw;
+  font-size: 4vw;
+}
+
+#header {
+  font-size: 7vh;
+  color: white;
+}
+
+body {
+  background-color: #222222;
+}

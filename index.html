@@ -1,95 +1,100 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="light.css">
-    <link rel="manifest" href="/calculator-thing/manifest.json">
-  </head>
-  <body onkeydown="checkKey(event);">
-<div id="app"></div>
-<div id="event"></div>
-<div id="main-calc">
-<input id="output" width='200' value="0" readonly placeholder="-1" onclick="clipboard();"></input>
-<br>
-<table>
-  <tr>
-    <td>
-      <button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');" class="unclicked" onmouseup="blur();">c</button>
-    </td>
-    <td>
-      <button id="posinegative" onclick="posinegative();" class="unclicked" onmouseup="blur();">±</button>
-    </td>
-    <td>
-      <button id="percent" onclick="_100();" class="unclicked" onmouseup="blur();">%</button>
-    </td>
-    <td>
-      <button id="divide" onclick="addDivide('/');" class="unclicked" onmouseup="blur();">÷</button>
-  </tr>
 
-  <tr>
-    <td>
-      <button id="seven" onclick="addNum('7');" class="unclicked" onmouseup="blur();">7</button>
-    </td>
-    <td>
-      <button id="eight" onclick="addNum('8');" class="unclicked" onmouseup="blur();">8</button>
-    </td>
-    <td>
-      <button id="nine" onclick="addNum('9');" class="unclicked" onmouseup="blur();">9</button>
-    </td>
-    <td>
-      <button id="times" onclick="addTimes('*');" class="unclicked" onmouseup="blur();">×</button>
-    </td>
-  </tr>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="light.css" id="theme">
+	<!--<link rel="alternate stylesheet" type="text/css" href="dark.css" title="dark">-->
+	<link rel="manifest" href="/calculator-thing/manifest.json">
+</head>
 
-  <tr>
-    <td>
-      <button id="four" onclick="addNum('4');" class="unclicked" onmouseup="blur();">4</button>
-    </td>
-    <td>
-      <button id="five" onclick="addNum('5');" class="unclicked" onmouseup="blur();">5</button>
-    </td>
-    <td>
-      <button id="six" onclick="addNum('6');" class="unclicked" onmouseup="blur();">6</button>
-    </td>
-    <td>
-      <button id="minus" onclick="addMinus('-');" class="unclicked" onmouseup="blur();">−</button>
-    </td>
-  </tr>
+<body onkeydown="checkKey(event);" onkeyup="document.activeElement.blur();">
+	<button class="theme-toggle" onclick="switch_style();"></button>
+		<div id="app"></div>
+		<div id="event"></div>
+		<div id="main-calc">
+			<table id="calc-table">
+				<tr>
+					<input id="output" width='200' value="0" readonly placeholder="-1" onclick="clipboard();"></input>
+				</tr>
+				<tr>
+					<td>
+						<button id="ac" onclick="document.getElementById('output').value = 0;console.log('set textarea.value to 0');" class="unclicked" onmouseup="blur();">c</button>
+					</td>
+					<td>
+						<button id="posinegative" onclick="posinegative();" class="unclicked" onmouseup="blur();">±</button>
+					</td>
+					<td>
+						<button id="percent" onclick="_100();" class="unclicked" onmouseup="blur();">%</button>
+					</td>
+					<td>
+						<button id="divide" onclick="addDivide('/');" class="unclicked" onmouseup="blur();">÷</button>
+				</tr>
 
-  <tr>
-    <td>
-      <button id="one" onclick="addNum('1');" class="unclicked" onmouseup="blur();">1</button>
-    </td>
-    <td>
-      <button id="two" onclick="addNum('2');" class="unclicked" onmouseup="blur();">2</button>
-    </td>
-    <td>
-      <button id="three" onclick="addNum('3');" class="unclicked" onmouseup="blur();">3</button>
-    </td>
-    <td>
-      <button id="plus" onclick="addPlus('+');" class="unclicked" onmouseup="blur();">+</button>
-    </td>
-  </tr>
+				<tr>
+					<td>
+						<button id="seven" onclick="addNum('7');" class="unclicked" onmouseup="blur();">7</button>
+					</td>
+					<td>
+						<button id="eight" onclick="addNum('8');" class="unclicked" onmouseup="blur();">8</button>
+					</td>
+					<td>
+						<button id="nine" onclick="addNum('9');" class="unclicked" onmouseup="blur();">9</button>
+					</td>
+					<td>
+						<button id="times" onclick="addTimes('*');" class="unclicked" onmouseup="blur();">×</button>
+					</td>
+				</tr>
 
-  <tr>
-    <td>
-      <button id="zero" onclick="addNum(0);" class="unclicked" onmouseup="blur();">0</button>
-    </td>
-    <td>
-      <button id="dot" onclick="addDot('.');" class="unclicked" onmouseup="blur();">.</button>
-    </td>
-    <td>
-      <button id="delete" onclick="del();" class="unclicked" onmouseup="blur();">⌫</button>
-    </td>
-    <td>
-      <button id="equal" onclick="equal();" class="unclicked" onmouseup="blur();">=</button>
-    </td>
-  </tr>
-</table>
-</div>
-<button class="add-button">Add to home screen</button><br>
-<script>
-// Write Javascript code!
+				<tr>
+					<td>
+						<button id="four" onclick="addNum('4');" class="unclicked" onmouseup="blur();">4</button>
+					</td>
+					<td>
+						<button id="five" onclick="addNum('5');" class="unclicked" onmouseup="blur();">5</button>
+					</td>
+					<td>
+						<button id="six" onclick="addNum('6');" class="unclicked" onmouseup="blur();">6</button>
+					</td>
+					<td>
+						<button id="minus" onclick="addMinus('-');" class="unclicked" onmouseup="blur();">−</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button id="one" onclick="addNum('1');" class="unclicked" onmouseup="blur();">1</button>
+					</td>
+					<td>
+						<button id="two" onclick="addNum('2');" class="unclicked" onmouseup="blur();">2</button>
+					</td>
+					<td>
+						<button id="three" onclick="addNum('3');" class="unclicked" onmouseup="blur();">3</button>
+					</td>
+					<td>
+						<button id="plus" onclick="addPlus('+');" class="unclicked" onmouseup="blur();">+</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button id="zero" onclick="addNum(0);" class="unclicked" onmouseup="blur();">0</button>
+					</td>
+					<td>
+						<button id="dot" onclick="addDot('.');" class="unclicked" onmouseup="blur();">.</button>
+					</td>
+					<td>
+						<button id="delete" onclick="del();" class="unclicked" onmouseup="blur();">⌫</button>
+					</td>
+					<td>
+						<button id="equal" onclick="equal();" class="unclicked" onmouseup="blur();">=</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<button class="add-button">Add to home screen</button><br>
+		<script>
+			// Write Javascript code!
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1 onclick="document.documentElement.requestFullscreen();" id="header">Calculator</h1>`;
 //const key = event.key
@@ -426,16 +431,26 @@ function clipboard() {
   /* Alert the copied text */
   alert("Copied the text: " + textarea.value);
 }
-</script>
+function switch_style() {
+    var el = document.getElementById("theme");
+    if (el.href.match("light.css")) {
+        el.href = "dark.css";    
+    }
+    else {
+        el.href = "light.css";  
+    }
+}
+		</script>
 
 
-<script>
-  if ('serviceWorker' in navigator) {
+		<script>
+			if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/calculator-thing/service-worker.js');
     });
   }
-</script>
-<!--0C±%÷789×456−123+0,⌫=-->
-  </body>
+		</script>
+		<!--0C±%÷789×456−123+0,⌫=-->
+</body>
+
 </html>
