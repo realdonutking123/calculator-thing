@@ -375,19 +375,6 @@ function _100() {
   console.log("set textarea.value to " + textarea.value);
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function wait(n) {
-  await sleep(n);
-  // Sleep in loop
- // for (let i = 0; i < 5; i++) {
-   // if (i === 3)
-     // await sleep(2000);
-   // console.log(i);
-  //}
-}
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
 addBtn.style.display = 'none';
@@ -431,12 +418,12 @@ function clipboard() {
   alert("Copied the text: " + textarea.value);
 }
 function switch_style() {
-    var el = document.getElementById("theme");
-    if (el.href.match("light.css")) {
-        el.href = "dark.css";    
+    var stylething = document.getElementById("theme");
+    if (stylething.href.match("light.css")) {
+        stylething.href = "dark.css";    
     }
     else {
-        el.href = "light.css";  
+        stylething.href = "light.css";  
     }
 }
 		</script>
