@@ -9,7 +9,7 @@
 <div id="app"></div>
 <div id="event"></div>
 <div id="main-calc">
-<input id="output" width='200' value="0" readonly placeholder="-1"></input>
+<input id="output" width='200' value="0" readonly placeholder="-1" onclick="clipboard();"></input>
 <br>
 <table>
   <tr>
@@ -387,8 +387,6 @@ async function wait(n) {
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
 addBtn.style.display = 'none';
-addBtn.style.height = '0vw'
-addBtn.style.margin = '0vw';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -414,6 +412,20 @@ window.addEventListener('beforeinstallprompt', (e) => {
       });
   });
 });
+function clipboard() {
+  /* Get the text field */
+  var textarea = document.getElementById("output");
+
+  /* Select the text field */
+  textarea.select();
+  textarea.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + textarea.value);
+}
 </script>
 
 
