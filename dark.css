@@ -34,7 +34,7 @@ button:active, .clicked, button:focus {
   max-height: 14vmin;
   font-size: 7vmin;  
   margin: 2vmin;
-  background-color: lightgray;
+  background-color: #555555;
 }
 
 #output {
@@ -86,4 +86,12 @@ button:active, .clicked, button:focus {
 
 body {
   background-color: #222222;
+}
+
+.theme-toggle:hover {
+  height: 10vh;
+  width: 10vh;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  margin: 2vmin;
 }

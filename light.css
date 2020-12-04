@@ -88,3 +88,10 @@ body {
   background-color: white;
 }
 
+.theme-toggle:hover {
+  height: 10vh;
+  width: 10vh;
+  max-width: 14vmin;
+  max-height: 14vmin;
+  margin: 2vmin;
+}
