@@ -5,7 +5,7 @@ button, .unclicked {
   width: 10vh;
   max-width: 14vmin;
   max-height: 14vmin;
-  margin: 2vmin;
+  margin: 1vmin;
   font-size: 7vmin;  
   position: relative;
   background-color: #eeeeee;
@@ -15,8 +15,8 @@ button, .unclicked {
 button:hover {
   border-radius: 30%;
   text-align: center;
-  height: 12vh;
-  width: 12vh;
+  height: 11vh;
+  width: 11vh;
   max-width: 16vmin;
   max-height: 16vmin;
   margin: auto;
@@ -28,8 +28,8 @@ button:hover {
 button:active, .clicked, button:focus {
   border-radius: 30%;
   text-align: center;
-  height: 15vw;
-  width: 15vw;
+  height: 10vh;
+  width: 10vh;
   max-width: 14vmin;
   max-height: 14vmin;
   font-size: 7vmin;  
@@ -88,7 +88,7 @@ body {
   background-color: white;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover, .theme-toggle {
   height: 10vh;
   width: 10vh;
   max-width: 14vmin;
