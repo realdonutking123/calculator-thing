@@ -1,4 +1,4 @@
-var cacheName = '15puzzle';
+var cacheName = 'calculator-thing';
 var filesToCache = [
   './icon-512.png',
   './index.html',
